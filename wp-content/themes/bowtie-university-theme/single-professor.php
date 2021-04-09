@@ -1,4 +1,4 @@
-<?php //test
+<?php
 get_header();
 
 while (have_posts()) {
