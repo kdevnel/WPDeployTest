@@ -80,34 +80,24 @@
   </div>
 </div>
 
-<div class="hero-slider">
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/bus.jpg') ?>);">
-    <div class="hero-slider__interior container">
-      <div class="hero-slider__overlay">
-        <h2 class="headline headline--medium t-center">Free Transportation</h2>
-        <p class="t-center">All students have free unlimited bus fare.</p>
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+<?php if (have_rows('slider')) : ?>
+  <div class="hero-slider">
+    <?php while (have_rows('slider')) : the_row();
+      $slideImage = get_sub_field('image');
+    ?>
+
+      <div class="hero-slider__slide" style="background-image: url(<?php echo esc_url($slideImage['url']); ?>);">
+        <div class="hero-slider__interior container">
+          <div class="hero-slider__overlay">
+            <h2 class="headline headline--medium t-center"><?php the_sub_field('title_text'); ?></h2>
+            <p class="t-center"><?php the_sub_field('slide_body_text'); ?></p>
+            <p class="t-center no-margin"><a href="<?php the_sub_field('button_link'); ?>" class="btn btn--blue"><?php the_sub_field('button_text'); ?></a></p>
+          </div>
+        </div>
       </div>
-    </div>
+
+    <?php endwhile; ?>
   </div>
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/apples.jpg') ?>);">
-    <div class="hero-slider__interior container">
-      <div class="hero-slider__overlay">
-        <h2 class="headline headline--medium t-center">An Apple a Day</h2>
-        <p class="t-center">Our dentistry program recommends eating apples.</p>
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/bread.jpg') ?>);">
-    <div class="hero-slider__interior container">
-      <div class="hero-slider__overlay">
-        <h2 class="headline headline--medium t-center">Free Food</h2>
-        <p class="t-center">Fictional University offers lunch plans for those in need.</p>
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-      </div>
-    </div>
-  </div>
-</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>
