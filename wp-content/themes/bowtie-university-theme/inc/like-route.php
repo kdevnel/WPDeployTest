@@ -88,6 +88,8 @@ function createLike($data)
 /**
  * Undocumented function
  *
+ * @param mixed $data General data, likely text input
+ *
  * @return void
  */
 function deleteLike($data)
@@ -95,7 +97,7 @@ function deleteLike($data)
     $likeID = sanitize_text_field($data['like']);
     if (get_current_user_id() == get_post_field('post_author', $likeID) and get_post_type($likeID) == 'like') {
         wp_delete_post($likeID, true);
-        return 'Congrate, like deleted.';
+        return 'Congrats, like deleted.';
     } else {
         die("You do not have permission to delete that.");
     }
