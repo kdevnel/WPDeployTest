@@ -1,2 +1,3 @@
-# public
- The site being built in the Become a WordPress Developer course on Udemy - https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/
+# Bowtie University - Udemy Course Site
+
+ This repo is for the site being built as part of the "[Become a WordPress Developer course](https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/)" on Udemy.
