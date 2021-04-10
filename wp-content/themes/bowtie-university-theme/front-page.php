@@ -17,21 +17,23 @@
 
       <?php
       $today = date('Ymd');
-      $homepageEvents = new WP_Query(array(
-        'posts_per_page' => 2,
-        'post_type' => 'event',
-        'meta_key' => 'event_date',
-        'orderby' => 'meta_value_num',
-        'order' => 'ASC',
-        'meta_query' => array(
-          array(
-            'key' => 'event_date',
-            'compare' => '>=',
-            'value' => $today,
-            'type' => 'numeric'
+      $homepageEvents = new WP_Query(
+        array(
+          'posts_per_page' => 2,
+          'post_type' => 'event',
+          'meta_key' => 'event_date',
+          'orderby' => 'meta_value_num',
+          'order' => 'ASC',
+          'meta_query' => array(
+            array(
+              'key' => 'event_date',
+              'compare' => '>=',
+              'value' => $today,
+              'type' => 'numeric'
+            )
           )
         )
-      ));
+      );
 
       while ($homepageEvents->have_posts()) {
         $homepageEvents->the_post();
@@ -48,9 +50,11 @@
     <div class="full-width-split__inner">
       <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
       <?php
-      $homepagePosts = new WP_Query(array(
-        'posts_per_page' => 2
-      ));
+      $homepagePosts = new WP_Query(
+        array(
+          'posts_per_page' => 2
+        )
+      );
 
       while ($homepagePosts->have_posts()) {
         $homepagePosts->the_post(); ?>
@@ -70,7 +74,7 @@
           </div>
         </div>
 
-      <?php }
+      <?php  }
 
       wp_reset_postdata();
       ?>
